@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import BaseComponent from "./baseComponent";
+import SearchStats from "./searchStats";
 /* eslint-disable no-unused-vars */
 
 require("./../styles/header.scss");
@@ -71,6 +72,12 @@ class Header extends BaseComponent {
     return null;
   }
 
+  renderSearchStats () {
+
+
+    return null;
+  }
+
   render () {
     let props = this.props;
 
@@ -99,12 +106,10 @@ class Header extends BaseComponent {
               {"Search"}
             </div>
           </div>
-          <div className="search-stats-group">
-            <div className="movies-displayed">{props.movies || 0}</div>
-            <div className="movies-total">
-              {"/" + (props.totalMovies || "0") + " movies displayed"}
-            </div>
-          </div>
+          <SearchStats
+            movies={props.movies}
+            totalMovies={props.totalMovies}
+          />
         </div>
         {this.renderSearchPush()}
       </div>

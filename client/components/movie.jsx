@@ -72,7 +72,7 @@ class Movie extends BaseComponent {
 
     return (
       <div className="movie-body">
-        <div className="movie-backdrop" style={ photoStyle } />
+        <div className="movie-backdrop" style={movie.id ? photoStyle : {}} />
         <div className="movie-title-group">
           <div className="movie-title">
             {movie.title}
