@@ -3,23 +3,39 @@
 .landing-movies {
   @extend %clear-fix;
 
-  margin: auto;
+  border-bottom: 2px solid black;
+  margin: 0 auto 1em;
   width: 80%;
 }
 
 .landing-item {
   @extend %clear-fix;
 
+  border: 2px solid black;
+  border-bottom: 0;
   height: 15em;
+  padding: 0.75em 0.5em;
 
   .left-poster {
     @extend %clear-fix;
 
     background-repeat: no-repeat;
     background-size: 185px auto;
+    clear: none;
     float: left;
     height: 14em;
+    margin-right: 1em;
     width: 185px;
+  }
+
+  .landing-item-data {
+    float: left;
+    width: calc(100% - 185px - 1em);
+  }
+
+  .title-genre-group {
+    float: left;
+    width: 80%
   }
 
   .movie-title {
@@ -28,5 +44,39 @@
 
   .movie-genres {
     font-size: 0.75em;
+  }
+
+  .rating-group {
+    float: right;
+  }
+
+  .movie-rating {
+    float: right;
+    width: 20%;
+  }
+
+  .rating-base {
+    float: left;
+    padding-top: 0.5em;
+  }
+
+  .rating-value {
+    float: left;
+    font-size: 1.5em;
+  }
+
+  .rating-number {
+    clear: both;
+    float: right;
+    font-size: 0.75em;
+  }
+
+  .movie-overview {
+    clear: both;
+    float: left;
+    font-size: 0.8em;
+    margin-top: 1em;
+    text-overflow: ellipsis;
+    width: 100%;
   }
 }

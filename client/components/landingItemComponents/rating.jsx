@@ -9,19 +9,25 @@ export default class Rating extends BaseComponent {
     this._bind();
   }
 
+  composeWithThousandsSeparator (number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   render () {
     let movie = this.props.movie;
 
     return(
       <div className="movie-rating">
-        <div className="rating-value">
-          {movie.vote_average}
-        </div>
-        <div className="rating-base">
-          {"/10"}
+        <div className="rating-group">
+          <div className="rating-value">
+            {movie.vote_average}
+          </div>
+          <div className="rating-base">
+            {"/10"}
+          </div>
         </div>
         <div className="rating-number">
-          {movie.vote_count}
+          {this.composeWithThousandsSeparator(movie.vote_count)}
         </div>
       </div>
     );

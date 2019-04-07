@@ -67,7 +67,6 @@ class Landing extends BaseComponent {
     return (
       <section className="landing-main">
         <div>{props.totalMovies}</div>
-        <div>{JSON.stringify(props.genres)}</div>
         <section className="landing-movies">
           {landingItems}
         </section>
