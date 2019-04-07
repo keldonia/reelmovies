@@ -41,7 +41,6 @@ export const fetchPopular = (page) => {
         page: page
       }
     }).then((res) => {
-      console.log(res);
       dispatch(fetchPopularReturn(res.data));
     });
   };

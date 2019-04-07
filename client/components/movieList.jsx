@@ -53,7 +53,6 @@ export default class MovieList extends BaseComponent {
 
     return (
       <section className="landing-main">
-        <div>{props.totalMovies}</div>
         <section className="landing-movies">
           {landingItems}
         </section>
