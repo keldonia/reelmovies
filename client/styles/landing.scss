@@ -3,7 +3,6 @@
 .landing-movies {
   @extend %clear-fix;
 
-  border-bottom: 2px solid black;
   margin: 0 auto 1em;
   width: 80%;
 }
@@ -11,9 +10,9 @@
 .landing-item {
   @extend %clear-fix;
 
-  border: 2px solid black;
-  border-bottom: 0;
-  height: 15em;
+  border: $border;
+  border-radius: 0.7em;
+  height: 13em;
   padding: 0.75em 0.5em;
 
   .left-poster {
