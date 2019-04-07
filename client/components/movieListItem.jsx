@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import BaseComponent from "./baseComponent";
-import GenreList from "./landingItemComponents/genreList";
-import Rating from "./landingItemComponents/rating";
+import GenreList from "./movieListItemComponents/genreList";
+import Rating from "./movieListItemComponents/rating";
 /* eslint-disable no-unused-vars */
 
 const postBase = "https://image.tmdb.org/t/p/w154";
 
-export default class LandingItem extends BaseComponent {
+export default class MovieListItem extends BaseComponent {
   constructor (props) {
     super(props);
     this._bind();

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import BaseComponent from "./baseComponent";
-import MovieItem from "./movieItem";
+import MovieListItem from "./movieListItem";
 /* eslint-disable no-unused-vars */
 import {
   updateMovies,
@@ -50,7 +50,7 @@ class Landing extends BaseComponent {
 
     return props.movies.map(movie => {
       return (
-        <MovieItem
+        <LandingItem
           genres={props.genres}
           key={movie.id}
           movie={movie}
