@@ -4,12 +4,12 @@ import BaseComponent from "./../baseComponent";
 /* eslint-disable no-unused-vars */
 
 export default class GenreList extends BaseComponent {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this._bind();
   }
 
-  composeGenreList() {
+  composeGenreList () {
     let props = this.props;
     let genres = props.genres;
     let ids = props.genreIds;
@@ -19,7 +19,7 @@ export default class GenreList extends BaseComponent {
     }).join(", ");
   }
 
-  render() {
+  render () {
     let props = this.props;
 
     return (

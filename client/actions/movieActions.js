@@ -12,20 +12,20 @@ const urls = {
   genres: "/genres"
 };
 
-function composeUrl(extension) {
+function composeUrl (extension) {
   return urls.baseUrl +
     urls.api +
-    urls[extension]
+    urls[extension];
 }
 
-export function updateMovies(payload) {
-  return { type: UPDATE_MOVIES, payload }
-}; 
+export function updateMovies (payload) {
+  return { type: UPDATE_MOVIES, payload };
+}
 
 export const fetchPopularReturn = payload => ({
   type: FETCH_POPULAR,
   payload
-})
+});
 
 export const fetchPopular = (page) => {
   return dispatch => {
@@ -36,11 +36,11 @@ export const fetchPopular = (page) => {
         page: page
       }
     }).then((res) => {
-      console.log(res)
+      console.log(res);
       dispatch(fetchPopularReturn(res.data));
     });
-  }
-}
+  };
+};
 
 export const fetchGenresReturn = payload => ({
   type: FETCH_GENRES,
@@ -55,5 +55,5 @@ export const fetchGenres = () => {
       .then(res => {
         dispatch(fetchGenresReturn(res.data));
       });
-  }
-}
+  };
+};

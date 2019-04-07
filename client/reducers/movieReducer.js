@@ -12,26 +12,24 @@ const initialState = {
   genres: {}
 };
 
-function movieReducer(state = initialState, action) {
+function movieReducer (state = initialState, action) {
   switch (action.type) {
     case UPDATE_MOVIES:
       state.push(action.payload);
       break;
     case FETCH_POPULAR:
-      console.log(action)
-      return Object.assign({}, state, action.payload)
+      console.log(action);
+      return Object.assign({}, state, action.payload);
       // state.push(action.payload);
-      break;
     case FETCH_GENRES:
-      console.log(action)
+      console.log(action);
       return Object.assign({}, state, mapGenres(action.payload.genres));
-      break;
   }
 
   return state;
 }
 
-function mapGenres(genres) {
+function mapGenres (genres) {
   let genreMap = {};
   let returnObj = {};
 

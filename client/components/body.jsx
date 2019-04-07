@@ -24,6 +24,6 @@ const Body = ({ store }) => (
 
 Body.propTypes = {
   store: PropTypes.object.isRequired
-}
+};
 
 export default Body;

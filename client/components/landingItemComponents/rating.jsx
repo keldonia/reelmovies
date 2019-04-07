@@ -4,12 +4,12 @@ import BaseComponent from "./../baseComponent";
 /* eslint-disable no-unused-vars */
 
 export default class Rating extends BaseComponent {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this._bind();
   }
 
-  render() {
+  render () {
     let movie = this.props.movie;
 
     return(

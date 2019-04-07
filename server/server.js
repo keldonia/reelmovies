@@ -8,7 +8,7 @@ const app = express();
 
 const movieRouter = require("./controller/movieRouter.js");
 
-let port = process.env.PORT || 800
+let port = process.env.PORT || 8080;
 
 app.use(bodyParser.json(), (req, res, next) => {
   console.log(req.path);
@@ -27,7 +27,7 @@ app.get((req, res) => {
 
   if (reqPath.includes(".js") || reqPath.includes(".css")) {
     let contentType = mime.lookup(reqPath);
-    
+
     res.setHeader("Content-Type", contentType);
     res.sendFile(reqPath);
   }
@@ -39,6 +39,6 @@ app.get("*", (req, res) => {
 
 const httpServer = http.createServer(app);
 
-httpServer.listen(8080, () => {
-  console.log("HTTP server is running on port 8080");
+httpServer.listen(port, () => {
+  console.log("HTTP server is running on port " + port);
 });

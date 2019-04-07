@@ -11,14 +11,22 @@
   @extend %clear-fix;
 
   height: 15em;
-}
 
-.left-poster {
-  @extend %clear-fix;
+  .left-poster {
+    @extend %clear-fix;
 
-  background-repeat: no-repeat;
-  background-size: 185px auto;
-  float: left;
-  height: 14em;
-  width: 185px;
+    background-repeat: no-repeat;
+    background-size: 185px auto;
+    float: left;
+    height: 14em;
+    width: 185px;
+  }
+
+  .movie-title {
+    font-size: 1.5em;
+  }
+
+  .movie-genres {
+    font-size: 0.75em;
+  }
 }

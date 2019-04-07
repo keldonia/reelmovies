@@ -16,7 +16,6 @@ require("./../styles/landing.scss");
 
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.MovieReducer)
   let movieInfo = state.MovieReducer;
 
   return ({
@@ -26,15 +25,15 @@ const mapStateToProps = (state, ownProps) => {
     totalPages: movieInfo.total_pages,
     genres: movieInfo.genres
   });
-}
+};
 
 class Landing extends BaseComponent {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this._bind();
   }
 
-  componentDidMount() {
+  componentDidMount () {
     let props = this.props;
 
     if (props.movies.length === 0) {
@@ -46,22 +45,22 @@ class Landing extends BaseComponent {
     }
   }
 
-  renderMovies() {
+  renderMovies () {
     let props = this.props;
-    
+
     return props.movies.map(movie => {
       return (
         <LandingItem
-            genres={props.genres}
-            key={movie.id}
-            movie={movie}
-          />
+          genres={props.genres}
+          key={movie.id}
+          movie={movie}
+        />
       );
-    })
+    });
 
   }
 
-  render() {
+  render () {
     let props = this.props;
     let landingItems = this.renderMovies();
 
@@ -72,7 +71,7 @@ class Landing extends BaseComponent {
         <section className="landing-movies">
           {landingItems}
         </section>
-      </section>  
+      </section>
     );
   }
 }
