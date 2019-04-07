@@ -64,6 +64,11 @@ class Movie extends BaseComponent {
     let photoStyle = {
       backgroundImage: "url(" + postBase + movie.backdrop_path + ")"
     };
+    let genreIds = movie.genres || [];
+
+    genreIds = genreIds.map(id => {
+      return id.id;
+    });
 
     return (
       <div className="movie-body">
@@ -72,8 +77,8 @@ class Movie extends BaseComponent {
           <div className="movie-title">
             {movie.title}
           </div>
-          <GenreList genres={props.genres} genreIds={movie.genre_ids} />
           <Rating movie={movie} />
+          <GenreList genres={props.genres} genreId={genreIds} />
         </div>
         <MovieStats movie={movie} />
         <div className="movie-overview">{movie.overview}</div>

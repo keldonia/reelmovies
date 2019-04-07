@@ -27,8 +27,6 @@ export default class Cast extends BaseComponent {
   render () {
     let props = this.props;
 
-    console.log(props)
-
     return (
       <div className="movie-cast">
         <div className="cast-type">{props.castType}</div>

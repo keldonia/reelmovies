@@ -26,10 +26,14 @@ export default class MovieStats extends BaseComponent {
     return (
       <div className="movie-stats">
         <div className="movie-runtime">
-          {"Runtime: " + this.composeRuntime(movie)}
+          {"Runtime: " + (this.composeRuntime(movie) || "")}
         </div>
-        <div className="movie-release">{"Release: " + movie.release_date}</div>
-        <div className="movie-status">{"Status: " + movie.status}</div>
+        <div className="movie-release">
+          {"Release: " + (movie.release_date || "")}
+        </div>
+        <div className="movie-status">
+          {"Status: " + (movie.status || "")}
+        </div>
         <div className="movie-revenue">
           {"Revenue: $" + this.composeWithThousandsSeparator(movie.revenue)}
         </div>
