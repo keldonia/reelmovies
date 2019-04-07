@@ -3,13 +3,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
+import queryString from "query-string";
 
 import BaseComponent from "./baseComponent";
 import MovieList from "./movieList";
 /* eslint-disable no-unused-vars */
 import {
-  updateMovies,
-  fetchPopular,
+  fetchSearchMovies,
   fetchGenres
 } from "./../actions/movieActions";
 
@@ -36,9 +36,10 @@ class SearchMovies extends BaseComponent {
 
   componentDidMount () {
     let props = this.props;
+    let query = queryString.parse(this.props.location.search);
 
     if (!props.movies.length) {
-      props.dispatch(fetchPopular(props.page));
+      props.dispatch(fetchSearchMovies(query, props.page));
     }
 
     if (!Object.keys(props.genres).length) {
@@ -48,8 +49,6 @@ class SearchMovies extends BaseComponent {
 
   render () {
     let props = this.props;
-
-    console.log(props.location.search)
 
     if (!props.location.search) {
       return (

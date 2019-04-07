@@ -33,18 +33,9 @@ app.get((req, res) => {
   }
 });
 
-app.get("/*", (req, res) => {
-  console.log("star")
-  console.log(req.path)
+app.get("*", (req, res) => {
   res.sendFile(path.normalize(__dirname + "./../client/index.html"));
 });
-
-app.get("*", (req, res) => {
-    console.log(req.path)
-
-  res.sendFile(__dirname + "./../client/index.html");
-});
-
 
 const httpServer = http.createServer(app);
 

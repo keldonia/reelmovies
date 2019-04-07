@@ -7,7 +7,6 @@ import BaseComponent from "./baseComponent";
 import MovieList from "./movieList";
 /* eslint-disable no-unused-vars */
 import {
-  updateMovies,
   fetchPopular,
   fetchGenres
 } from "./../actions/movieActions";

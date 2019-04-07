@@ -1,11 +1,12 @@
 import {
-  UPDATE_MOVIES,
+  FETCH_MOVIE,
   FETCH_POPULAR,
   FETCH_GENRES,
   SEARCH_MOVIES
 } from "./../constants/actionTypes";
 
 const initialState = {
+  movie: {},
   page: 1,
   totalMovies: 0,
   totalPages: 0,
@@ -15,17 +16,15 @@ const initialState = {
 
 function movieReducer (state = initialState, action) {
   switch (action.type) {
-    case UPDATE_MOVIES:
-      state.push(action.payload);
+    case FETCH_MOVIE:
+      return Object.assign({}, state, action.payload);
       break;
     case SEARCH_MOVIES:
       // Deliberate fall-through
     case FETCH_POPULAR:
-      console.log(action);
       return Object.assign({}, state, action.payload);
       // state.push(action.payload);
     case FETCH_GENRES:
-      console.log(action);
       return Object.assign({}, state, mapGenres(action.payload.genres));
   }
 
