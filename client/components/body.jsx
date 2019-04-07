@@ -22,8 +22,8 @@ require("./../styles/base.scss");
 const Body = ({ store }) => (
   <Provider store={store}>
     <Router history={history}>
+      <Header />
       <main className="main">
-        <Header />
         <Switch>
           <Route path="/" exact component={PopularMovies} />
           <Route path="/popular" component={PopularMovies} />

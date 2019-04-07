@@ -4,9 +4,17 @@
   @extend %clear-fix;
 
   background-color: $almostblack;
+  box-shadow: 2px 0 0.5em $grey;
   color: white;
   height: 4em;
+  position: fixed;
+  top: 0;
   width: 100%;
+  z-index: 100;
+
+  .logo-group {
+    width: 70%;
+  }
 
   .logo {
     color: $lightgrey;
@@ -15,7 +23,6 @@
     height: 100%;
     padding-left: 0.5em;
     text-decoration: none;
-    width: 70%;
   }
 
   .search-group {

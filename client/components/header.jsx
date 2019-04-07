@@ -76,12 +76,14 @@ class Header extends BaseComponent {
 
     return(
       <div className="navbar">
-        <Link
-          className="logo"
-          to="/popular"
-        >
-          {"ReelMovies"}
-        </Link>
+        <div className="logo-group">
+          <Link
+            className="logo"
+            to="/popular"
+          >
+            {"ReelMovies"}
+          </Link>
+        </div>
         <div className="search-group">
           <div className="search-bar-wrapper">
             <input
