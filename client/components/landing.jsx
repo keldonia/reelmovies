@@ -36,11 +36,11 @@ class Landing extends BaseComponent {
   componentDidMount () {
     let props = this.props;
 
-    if (props.movies.length === 0) {
+    if (!props.movies.length) {
       props.dispatch(fetchPopular(props.page));
     }
 
-    if (Object.keys(props.genres).length === 0) {
+    if (!Object.keys(props.genres).length) {
       props.dispatch(fetchGenres());
     }
   }
