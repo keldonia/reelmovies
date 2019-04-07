@@ -6,7 +6,8 @@ import BaseComponent from "./baseComponent";
 
 const renderedPaths = [
   "/search",
-  "/popular"
+  "/popular",
+  ""
 ];
 
 export default class SearchStats extends BaseComponent {

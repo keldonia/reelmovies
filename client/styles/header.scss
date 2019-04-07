@@ -13,7 +13,7 @@
   z-index: 100;
 
   .logo-group {
-    width: 70%;
+    width: 33%;
   }
 
   .logo {
@@ -27,7 +27,8 @@
 
   .search-group {
     float: right;
-    width: 25%;
+    min-width: 21em;
+    width: 40%;
 
     > div {
       float: right;

@@ -14,7 +14,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 }, {});
 
 module.exports = {
-  mode: "production",
+  // mode: "production",
   context: __dirname,
   entry: ["@babel/polyfill", "./client/app.jsx"],
   output: {
@@ -68,9 +68,6 @@ module.exports = {
       "Promise": "bluebird"
     }),
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: "production",           // Removes a lot of fat from various modules in compilation
-      },
       "__DEVTOOLS__": false               // Should disable certain react dev tools
     }),
     new webpack.LoaderOptionsPlugin({
@@ -91,16 +88,8 @@ module.exports = {
         minimize: true
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      mangle: {
-        except: [ "exports", "require" ]
-      }
-    }),
     new CompressionPlugin({
-      asset: "[path].gz[query]",
+      filename: "[path].gz[query]",
       algorithm: "gzip",
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,

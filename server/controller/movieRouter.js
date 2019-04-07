@@ -26,7 +26,6 @@ router.get("/popular", async(req, res, next) => {
 
   await requestPromise.get(requestOptions)
     .then(movieDBRes => {
-      console.log(movieDBRes);
       res.send(movieDBRes);
     });
 });
@@ -43,7 +42,6 @@ router.get("/search", async(req, res, next) => {
 
   await requestPromise.get(requestOptions)
     .then(movieDBRes => {
-      console.log(movieDBRes);
       res.send(movieDBRes);
     });
 });
@@ -58,7 +56,6 @@ router.get("/genres", async(req, res, next) => {
 
   await requestPromise.get(requestOptions)
     .then(movieDBRes => {
-      console.log(movieDBRes);
       res.send(movieDBRes);
     });
 });

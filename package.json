@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "openInChrome": "open -a 'Google Chrome' localhost:8080",
+    "openInChrome": "open -a 'Google Chrome' http://localhost:8080",
     "runItAll": "npm i && npm run webpackOnce && npm run openInChrome && npm run start",
     "runItAll:prod": "npm i && npm run webpackOnce:prod && npm run openInChrome && npm run start:prod",
+    "setupServer": "npm i && npm run webpackOnce && npm run start",
     "start": "node server/server.js",
     "start:prod": "NODE_ENV=\"production\" node ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",

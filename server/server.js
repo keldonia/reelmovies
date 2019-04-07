@@ -22,17 +22,6 @@ app.use("/api", movieRouter);
 
 app.use(express.static(__dirname + "./../client"));
 
-app.get((req, res) => {
-  let reqPath = path.normalize(__dirname + "./../client" + req.path);
-
-  if (reqPath.includes(".js") || reqPath.includes(".css")) {
-    let contentType = mime.lookup(reqPath);
-
-    res.setHeader("Content-Type", contentType);
-    res.sendFile(reqPath);
-  }
-});
-
 app.get("*", (req, res) => {
   res.sendFile(path.normalize(__dirname + "./../client/index.html"));
 });
