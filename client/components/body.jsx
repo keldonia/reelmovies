@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import PopularMovies from "./popularMovies.jsx";
 import SearchMovies from "./searchMovies.jsx";
 import Movie from "./movie.jsx";
+import Header from "./header.jsx";
 /* eslint-disable no-unused-vars */
 
 require("./../styles/base.scss");
@@ -20,8 +21,8 @@ require("./../styles/base.scss");
 const Body = ({ store }) => (
   <Provider store={store}>
     <Router history={history}>
-      <div>{"HI"}</div>
       <main className="main">
+        <Header />
         <Switch>
           <Route path="/" exact component={PopularMovies} />
           <Route path="/popular" component={PopularMovies} />
