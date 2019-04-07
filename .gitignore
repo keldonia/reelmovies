@@ -1,0 +1,4 @@
+# Exclude Node Modules
+/node_modules/**
+
+apiKey.js
