@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Redirect, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import queryString from "query-string";
 
 import BaseComponent from "./baseComponent";
 /* eslint-disable no-unused-vars */
@@ -23,11 +23,52 @@ const mapStateToProps = (state, ownProps) => {
 class Header extends BaseComponent {
   constructor (props) {
     super(props);
-    this._bind();
+    this._bind("updateSearchBar", "searchMovie");
 
-    this.state = ({
-      search: queryString.parse(location.search).search
+    this.state = {
+      search: "",
+      push: false
+    };
+  }
+
+  componentDidUpdate () {
+    if (this.state.push) {
+      this.setState({
+        push: false,
+        search: ""
+      });
+    }
+  }
+
+  updateSearchBar (event) {
+    let value = event.target.value;
+
+    this.setState({
+      search: value
     });
+  }
+
+  searchMovie (event) {
+    let search = this.state.search;
+
+    if (search && search.length >= 3) {
+      this.setState({
+        push: true
+      });
+    }
+  }
+
+  renderSearchPush () {
+    let state = this.state;
+
+    if (state.push) {
+      let searchTerm = "/search?search=" + this.state.search.replace(" ", "+");
+
+      return (
+        <Redirect to={searchTerm} />
+      );
+    }
+    return null;
   }
 
   render () {
@@ -35,13 +76,26 @@ class Header extends BaseComponent {
 
     return(
       <div className="navbar">
-        <div className="logo">{"ReelMovies"}</div>
+        <Link
+          className="logo"
+          to="/popular"
+        >
+          {"ReelMovies"}
+        </Link>
         <div className="search-group">
           <div className="search-bar-wrapper">
             <input
               className="search-bar"
               value={this.state.search}
+              onChange={this.updateSearchBar}
+              type="text"
             />
+            <div
+              className="search-button"
+              onClick={this.searchMovie}
+            >
+              {"Search"}
+            </div>
           </div>
           <div className="search-stats-group">
             <div className="movies-displayed">{props.movies || 0}</div>
@@ -50,6 +104,7 @@ class Header extends BaseComponent {
             </div>
           </div>
         </div>
+        {this.renderSearchPush()}
       </div>
     );
   }

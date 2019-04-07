@@ -35,9 +35,7 @@ class PopularMovies extends BaseComponent {
   componentDidMount () {
     let props = this.props;
 
-    if (!props.movies.length) {
-      props.dispatch(fetchPopular(props.page));
-    }
+    props.dispatch(fetchPopular(props.page));
 
     if (!Object.keys(props.genres).length) {
       props.dispatch(fetchGenres());

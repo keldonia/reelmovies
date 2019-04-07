@@ -6,7 +6,8 @@ import {
   BrowserHistory as history,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import { Provider } from "react-redux";
 
@@ -28,7 +29,7 @@ const Body = ({ store }) => (
           <Route path="/popular" component={PopularMovies} />
           <Route path="/search" component={SearchMovies} />
           <Route path="/movie" component={Movie} />
-          <Route path="*" component={PopularMovies} />
+          <Redirect from="*" to="/" />
         </Switch>
       </main>
     </Router>

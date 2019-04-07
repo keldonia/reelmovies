@@ -38,9 +38,7 @@ class SearchMovies extends BaseComponent {
     let props = this.props;
     let query = queryString.parse(this.props.location.search);
 
-    if (!props.movies.length) {
-      props.dispatch(fetchSearchMovie(query, props.page));
-    }
+    props.dispatch(fetchSearchMovie(query, props.page));
 
     if (!Object.keys(props.genres).length) {
       props.dispatch(fetchGenres());
