@@ -1,0 +1,14 @@
+@import './variables';
+
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+  letter-spacing: $kerning;
+  margin: 0 auto;
+}
+
+%clear-fix {
+  clear: both;
+  content: '';
+  display: block;
+}
