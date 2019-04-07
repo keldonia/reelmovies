@@ -27,7 +27,7 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-class Landing extends BaseComponent {
+class MovieList extends BaseComponent {
   constructor (props) {
     super(props);
     this._bind();
@@ -50,7 +50,7 @@ class Landing extends BaseComponent {
 
     return props.movies.map(movie => {
       return (
-        <LandingItem
+        <MovieListItem
           genres={props.genres}
           key={movie.id}
           movie={movie}
@@ -75,6 +75,6 @@ class Landing extends BaseComponent {
   }
 }
 
-const ConnectedLanding = connect(mapStateToProps)(Landing);
+const ConnectedMovieList = connect(mapStateToProps)(MovieList);
 
-export default ConnectedLanding;
+export default ConnectedMovieList;
