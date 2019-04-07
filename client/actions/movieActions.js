@@ -2,14 +2,16 @@ import axios from "axios";
 import {
   UPDATE_MOVIES,
   FETCH_POPULAR,
-  FETCH_GENRES
+  FETCH_GENRES,
+  SEARCH_MOVIE
 } from "./../constants/actionTypes";
 
 const urls = {
   baseUrl: "http://localhost:8080",
   api: "/api",
   popular: "/popular",
-  genres: "/genres"
+  genres: "/genres",
+  search: "/search"
 };
 
 function composeUrl (extension) {
@@ -55,5 +57,24 @@ export const fetchGenres = () => {
       .then(res => {
         dispatch(fetchGenresReturn(res.data));
       });
+  };
+};
+
+export const fetchSearchMoviesReturn = payload => ({
+  type: SEARCH_MOVIE,
+  payload
+});
+
+export const fetchSearchMovies = (searchString) => {
+  return dispatch => {
+    let url = composeUrl("search");
+
+    axios.get(url, {
+      params: {
+        search: encodeURIComponent(searchString)
+      }
+    }).then(res => {
+
+    });
   };
 };

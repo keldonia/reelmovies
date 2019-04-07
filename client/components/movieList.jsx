@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import BaseComponent from "./baseComponent";
-import MovieListItem from "./movieListItem";
+import MovieListItem from "./movieListItemComponents/movieListItem";
 /* eslint-disable no-unused-vars */
 import {
   updateMovies,
@@ -27,23 +27,28 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-class MovieList extends BaseComponent {
+export default class MovieList extends BaseComponent {
   constructor (props) {
     super(props);
     this._bind();
   }
 
-  componentDidMount () {
-    let props = this.props;
+  // componentDidMount () {
+  //   let props = this.props;
 
-    if (!props.movies.length) {
-      props.dispatch(fetchPopular(props.page));
-    }
+  //   console.log(props)
 
-    if (!Object.keys(props.genres).length) {
-      props.dispatch(fetchGenres());
-    }
-  }
+  //   if (
+  //     !props.movies.length &&
+  //     this.isPopularPage()
+  //   ) {
+  //     props.dispatch(fetchPopular(props.page));
+  //   }
+
+  //   if (!Object.keys(props.genres).length) {
+  //     props.dispatch(fetchGenres());
+  //   }
+  // }
 
   renderMovies () {
     let props = this.props;
@@ -74,7 +79,3 @@ class MovieList extends BaseComponent {
     );
   }
 }
-
-const ConnectedMovieList = connect(mapStateToProps)(MovieList);
-
-export default ConnectedMovieList;

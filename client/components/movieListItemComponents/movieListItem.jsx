@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import BaseComponent from "./baseComponent";
-import GenreList from "./movieListItemComponents/genreList";
-import Rating from "./movieListItemComponents/rating";
+import BaseComponent from "./../baseComponent";
+import GenreList from "./genreList";
+import Rating from "./rating";
 /* eslint-disable no-unused-vars */
 
 const postBase = "https://image.tmdb.org/t/p/w154";

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { BrowserRouter as Router, BrowserHistory as history, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 
-import MovieList from "./movieList.jsx";
+import PopularMovies from "./popularMovies.jsx";
 /* eslint-disable no-unused-vars */
 
 require("./../styles/base.scss");
@@ -14,9 +14,10 @@ const Body = ({ store }) => (
     <div>{"HI"}</div>
     <Router history={history}>
       <main className="main">
-        <Route path="/" exact component={MovieList} />
-        <Route path="/popular" component={MovieList} />
-        <Route path="*" comparator={MovieList} />
+        <Route path="/" exact component={PopularMovies} />
+        <Route path="/popular" component={PopularMovies} />
+        {/*<Route path="/search" component={SearchMovies} />*/}
+        <Route path="*" comparator={PopularMovies} />
       </main>
     </Router>
   </Provider>
