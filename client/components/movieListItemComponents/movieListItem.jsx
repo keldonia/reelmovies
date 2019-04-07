@@ -21,7 +21,7 @@ export default class MovieListItem extends BaseComponent {
     let props = this.props;
     let movie = props.movie;
     let photoStyle = {
-      backgroundImage: "url(" + postBase + movie.poster_path
+      backgroundImage: "url(" + postBase + movie.poster_path + ")"
     };
 
     return (

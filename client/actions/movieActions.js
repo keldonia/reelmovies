@@ -13,7 +13,8 @@ const urls = {
   popular: "/popular",
   genres: "/genres",
   search: "/search",
-  movie: "/"
+  movie: "/",
+  credits: "/credits/"
 };
 
 function composeUrl (extension) {
@@ -91,12 +92,30 @@ export const fetchMovie = (searchString) => {
   return dispatch => {
     let url = composeUrl("movie") + searchString.id;
 
-    console.log(searchString)
-
     axios.get(url).then(res => {
       let movie = { movie: res.data };
 
       dispatch(fetchMovieReturn(movie));
+    });
+  };
+};
+
+export const fetchCastReturn = payload => ({
+  type: FETCH_MOVIE,
+  payload
+});
+
+export const fetchCast = (searchString) => {
+  return dispatch => {
+    let url = composeUrl("credits") + searchString.id;
+
+    axios.get(url).then(res => {
+      let cast = {
+        cast: res.data.cast,
+        crew: res.data.crew
+      };
+
+      dispatch(fetchCastReturn(cast));
     });
   };
 };

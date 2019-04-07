@@ -3,10 +3,13 @@ import {
   FETCH_POPULAR,
   FETCH_GENRES,
   SEARCH_MOVIES,
+  FETCH_CAST
 } from "./../constants/actionTypes";
 
 const initialState = {
   movie: {},
+  cast: [],
+  crew: [],
   page: 1,
   totalMovies: 0,
   totalPages: 0,
@@ -17,6 +20,7 @@ const initialState = {
 function movieReducer (state = initialState, action) {
   switch (action.type) {
     case FETCH_MOVIE:
+    case FETCH_CAST:
     case SEARCH_MOVIES:
       // Deliberate fall-throughs
     case FETCH_POPULAR:

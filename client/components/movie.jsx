@@ -6,9 +6,14 @@ import { Redirect } from "react-router";
 import queryString from "query-string";
 
 import BaseComponent from "./baseComponent";
+import GenreList from "./movieListItemComponents/genreList";
+import Rating from "./movieListItemComponents/rating";
+import MovieStats from "./movieComponents/movieStats";
+import Cast from "./movieComponents/cast";
 /* eslint-disable no-unused-vars */
 import {
   fetchMovie,
+  fetchCast,
   fetchMovieReturn,
   fetchGenres
 } from "./../actions/movieActions";
@@ -22,7 +27,9 @@ const mapStateToProps = (state, ownProps) => {
 
   return ({
     genres: movieInfo.genres,
-    movie: movieInfo.movie
+    movie: movieInfo.movie,
+    cast: movieInfo.cast,
+    crew: movieInfo.crew
   });
 };
 
@@ -39,6 +46,7 @@ class Movie extends BaseComponent {
       let query = queryString.parse(this.props.location.search);
 
       props.dispatch(fetchMovie(query));
+      props.dispatch(fetchCast(query));
     }
 
     if (!Object.keys(props.genres).length) {
@@ -54,13 +62,25 @@ class Movie extends BaseComponent {
     let props = this.props;
     let movie = props.movie;
     let photoStyle = {
-      backgroundImage: "url(" + postBase + movie.backdrop_path
+      backgroundImage: "url(" + postBase + movie.backdrop_path + ")"
     };
 
     return (
       <div className="movie-body">
         <div className="movie-backdrop" style={ photoStyle } />
-        {JSON.stringify(props.movie)}
+        <div className="movie-title-group">
+          <div className="movie-title">
+            {movie.title}
+          </div>
+          <GenreList genres={props.genres} genreIds={movie.genre_ids} />
+          <Rating movie={movie} />
+        </div>
+        <MovieStats movie={movie} />
+        <div className="movie-overview">{movie.overview}</div>
+        <div className="movie-credits">
+          <Cast cast={props.cast} castType={"Cast"} />
+          <Cast crew={props.crew} castType={"Crew"} />
+        </div>
       </div>
     );
   }

@@ -12,7 +12,7 @@ export default class GenreList extends BaseComponent {
   composeGenreList () {
     let props = this.props;
     let genres = props.genres;
-    let ids = props.genreIds;
+    let ids = props.genreId || [];
 
     return ids.map(genreId => {
       return genres[genreId];

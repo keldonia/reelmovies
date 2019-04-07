@@ -3,7 +3,8 @@ const MovieDBApis = {
   popular: "/movie/popular",
   search: "/search/movie",
   genres: "/genre/movie/list",
-  movie: "/movie"
+  movie: "/movie",
+  credits: "/credits"
 };
 
 module.exports = MovieDBApis;

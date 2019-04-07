@@ -1,14 +1,114 @@
 @import './variables';
 
+%movie-padding {
+  float: left;
+  padding: 0.5em;
+  width: calc(100% - 1em);
+}
+
+.movie-body {
+  @extend %clear-fix;
+
+  background-color: $black;
+  color: $lightgrey;
+  margin: 0 auto;
+  width: 80%;
+
+  .movie-title-group {
+    @extend %movie-padding;
+  }
+
+  .movie-title {
+    color: white;
+    font-size: 2em;
+    float: left;
+    width: 85%;
+  }
+
+  .rating-group {
+    float: right;
+  }
+
+  .movie-rating {
+    float: right;
+    width: 15%;
+  }
+
+  .rating-base {
+    float: left;
+    padding-top: 0.5em;
+  }
+
+  .rating-value {
+    float: left;
+    font-size: 1.5em;
+  }
+
+  .rating-number {
+    clear: both;
+    float: right;
+    font-size: 0.75em;
+  }
+
+  .movie-overview {
+    padding: 0.25em 0.5em; 
+  }
+
+  .movie-stats {
+    @extend %movie-padding;
+
+    > div {
+      float: left;
+      font-size: 0.75em;
+      text-align: center;
+      width: 20%;
+    }
+  }
+
+  .movie-credits {
+    @extend %clear-fix;
+
+    margin: 2em auto 0;
+    overflow: hidden;
+    padding-bottom: 2em;
+    width: 60%;
+  }
+
+  .movie-cast {
+    @extend %clear-fix;
+
+    clear: none;
+    float: left;
+    width: 50%;
+  }
+
+  .movie-cast-member {
+    @extend %movie-padding;
+
+    float: left;
+    font-size: 0.8em;
+    padding: 0.25em 0.5em;
+
+    > div {
+      float: left;
+    }
+
+    .cast-name {
+      margin-left: 0.75em;
+      clear: right;
+    }
+  }
+}
+
 .movie-backdrop {
   @extend %clear-fix;
 
-    background-color: $black;
+    background-position: center; 
     background-repeat: no-repeat;
     background-size: 780px auto;
     clear: both;
     float: left;
-    height: 14em;
+    height: 21em;
     margin: auto;
     width: 100%;
 }
