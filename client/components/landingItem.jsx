@@ -29,7 +29,9 @@ export default class LandingItem extends BaseComponent {
         <div className="left-poster" style={ photoStyle } />
         <div className="landing-item-data">
           <div className="title-genre-group">
-            <div className="movie-title">{this.composeTitleAndReleaseDate(movie)}</div>
+            <div className="movie-title">
+              {this.composeTitleAndReleaseDate(movie)}
+            </div>
             <GenreList genres={props.genres} genreIds={movie.genre_ids} />
           </div>
           <Rating movie={movie} />
