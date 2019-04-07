@@ -1,5 +1,12 @@
 @import './variables';
 
+.landing-movies {
+  @extend %clear-fix;
+
+  margin: auto;
+  width: 80%;
+}
+
 .landing-item {
   @extend %clear-fix;
 
@@ -11,6 +18,7 @@
 
   background-repeat: no-repeat;
   background-size: 185px auto;
+  float: left;
   height: 14em;
   width: 185px;
 }

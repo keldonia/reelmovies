@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import BaseComponent from "./baseComponent";
+import GenreList from "./landingItemComponents/genreList";
+import Rating from "./landingItemComponents/rating";
 /* eslint-disable no-unused-vars */
 
 const postBase = "https://image.tmdb.org/t/p/w154";
@@ -9,7 +11,6 @@ export default class LandingItem extends BaseComponent {
   constructor(props) {
     super(props);
     this._bind();
-  //   this.state = props;
   }
 
   composeTitleAndReleaseDate(movie) {
@@ -26,8 +27,12 @@ export default class LandingItem extends BaseComponent {
     return (
       <section className="landing-item">
         <div className="left-poster" style={ photoStyle } />
-        <div className="movie-title">{this.composeTitleAndReleaseDate(movie)}</div>
-        <div className="movie-overview">{movie.overview}</div>
+        <div className="landing-item-data">
+          <div className="movie-title">{this.composeTitleAndReleaseDate(movie)}</div>
+          <GenreList genres={props.genres} genreIds={movie.genre_ids} />
+          <Rating movie={movie} />
+          <div className="movie-overview">{movie.overview}</div>
+        </div>
       </section>  
     );
   }

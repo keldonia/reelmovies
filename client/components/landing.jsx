@@ -32,7 +32,6 @@ class Landing extends BaseComponent {
   constructor(props) {
     super(props);
     this._bind();
-  //   this.state = props;
   }
 
   componentDidMount() {
