@@ -2,9 +2,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 
 import BaseComponent from "./baseComponent";
-import MovieItem from "./movieItem";
+import MovieList from "./movieList";
 /* eslint-disable no-unused-vars */
 import {
   updateMovies,
@@ -12,7 +13,7 @@ import {
   fetchGenres
 } from "./../actions/movieActions";
 
-require("./../styles/landing.scss");
+require("./../styles/movieList.scss");
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -27,7 +28,7 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-class Landing extends BaseComponent {
+class SearchMovies extends BaseComponent {
   constructor (props) {
     super(props);
     this._bind();
@@ -45,36 +46,23 @@ class Landing extends BaseComponent {
     }
   }
 
-  renderMovies () {
-    let props = this.props;
-
-    return props.movies.map(movie => {
-      return (
-        <MovieItem
-          genres={props.genres}
-          key={movie.id}
-          movie={movie}
-        />
-      );
-    });
-
-  }
-
   render () {
     let props = this.props;
-    let landingItems = this.renderMovies();
 
-    return (
-      <section className="landing-main">
-        <div>{props.totalMovies}</div>
-        <section className="landing-movies">
-          {landingItems}
-        </section>
-      </section>
-    );
+    console.log(props.location.search)
+
+    if (!props.location.search) {
+      return (
+        <Redirect to="/popular" />
+      );
+    } else {
+      return (
+        <MovieList {...props} />
+      );
+    }
   }
 }
 
-const ConnectedLanding = connect(mapStateToProps)(Landing);
+const ConnectedSearchMovies = connect(mapStateToProps)(SearchMovies);
 
-export default ConnectedLanding;
+export default ConnectedSearchMovies;
