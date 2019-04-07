@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Link } from "react-router-dom";
+
 import BaseComponent from "./../baseComponent";
 import GenreList from "./genreList";
 import Rating from "./rating";
@@ -30,7 +32,9 @@ export default class MovieListItem extends BaseComponent {
         <div className="landing-item-data">
           <div className="title-genre-group">
             <div className="movie-title">
-              {this.composeTitleAndReleaseDate(movie)}
+              <Link to={"/movie?id=" + movie.id}>
+                {this.composeTitleAndReleaseDate(movie)}
+              </Link>
             </div>
             <GenreList genres={props.genres} genreIds={movie.genre_ids} />
           </div>

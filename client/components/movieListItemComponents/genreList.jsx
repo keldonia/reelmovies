@@ -20,10 +20,6 @@ export default class GenreList extends BaseComponent {
   }
 
   render () {
-    let props = this.props;
-
-    console.log(props)
-
     return (
       <div className="movie-genres">
         {this.composeGenreList()}

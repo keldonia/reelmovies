@@ -33,23 +33,6 @@ export default class MovieList extends BaseComponent {
     this._bind();
   }
 
-  // componentDidMount () {
-  //   let props = this.props;
-
-  //   console.log(props)
-
-  //   if (
-  //     !props.movies.length &&
-  //     this.isPopularPage()
-  //   ) {
-  //     props.dispatch(fetchPopular(props.page));
-  //   }
-
-  //   if (!Object.keys(props.genres).length) {
-  //     props.dispatch(fetchGenres());
-  //   }
-  // }
-
   renderMovies () {
     let props = this.props;
 
@@ -62,7 +45,6 @@ export default class MovieList extends BaseComponent {
         />
       );
     });
-
   }
 
   render () {

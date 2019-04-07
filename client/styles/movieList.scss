@@ -43,6 +43,12 @@
 
   .movie-title {
     font-size: 1.5em;
+
+    > a {
+      color: $textgrey;
+      font-weight: 700;
+      text-decoration: none;
+    }
   }
 
   .movie-genres {
