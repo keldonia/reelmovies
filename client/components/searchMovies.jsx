@@ -9,7 +9,7 @@ import BaseComponent from "./baseComponent";
 import MovieList from "./movieList";
 /* eslint-disable no-unused-vars */
 import {
-  fetchSearchMovies,
+  fetchSearchMovie,
   fetchGenres
 } from "./../actions/movieActions";
 
@@ -39,7 +39,7 @@ class SearchMovies extends BaseComponent {
     let query = queryString.parse(this.props.location.search);
 
     if (!props.movies.length) {
-      props.dispatch(fetchSearchMovies(query, props.page));
+      props.dispatch(fetchSearchMovie(query, props.page));
     }
 
     if (!Object.keys(props.genres).length) {

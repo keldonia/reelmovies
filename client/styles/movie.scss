@@ -9,7 +9,8 @@
 .movie-body {
   @extend %clear-fix;
 
-  background-color: $black;
+  background-color: $darkgrey;
+  box-shadow: 0 2px 0.5em $darkgrey;
   color: $lightgrey;
   margin: 0 auto;
   width: 80%;
@@ -103,6 +104,7 @@
 .movie-backdrop {
   @extend %clear-fix;
 
+    background-color: $textgrey;
     background-position: center; 
     background-repeat: no-repeat;
     background-size: 780px auto;
