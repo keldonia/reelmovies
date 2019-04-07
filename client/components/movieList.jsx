@@ -12,7 +12,7 @@ import {
   fetchGenres
 } from "./../actions/movieActions";
 
-require("./../styles/landing.scss");
+require("./../styles/movieList.scss");
 
 
 const mapStateToProps = (state, ownProps) => {
