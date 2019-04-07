@@ -2,3 +2,6 @@
 /node_modules/**
 
 apiKey.js
+
+/client/bundle.js*
+/client/style.css*
