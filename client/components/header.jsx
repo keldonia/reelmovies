@@ -7,6 +7,9 @@ import { connect } from "react-redux";
 import BaseComponent from "./baseComponent";
 import SearchStats from "./searchStats";
 /* eslint-disable no-unused-vars */
+import {
+  ENTER
+} from "./../constants/keyCode";
 
 require("./../styles/header.scss");
 
@@ -24,7 +27,7 @@ const mapStateToProps = (state, ownProps) => {
 class Header extends BaseComponent {
   constructor (props) {
     super(props);
-    this._bind("updateSearchBar", "searchMovie");
+    this._bind("updateSearchBar", "searchMovie", "searchMovieKeyCheck");
 
     this.state = {
       search: "",
@@ -59,6 +62,12 @@ class Header extends BaseComponent {
     }
   }
 
+  searchMovieKeyCheck (event) {
+    if (event.keyCode === ENTER) {
+      this.searchMovie();
+    }
+  }
+
   renderSearchPush () {
     let state = this.state;
 
@@ -72,17 +81,11 @@ class Header extends BaseComponent {
     return null;
   }
 
-  renderSearchStats () {
-
-
-    return null;
-  }
-
   render () {
     let props = this.props;
 
     return(
-      <div className="navbar">
+      <div className="navbar" onKeyDown={this.searchMovieKeyCheck}>
         <div className="logo-group">
           <Link
             className="logo"
