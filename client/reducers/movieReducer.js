@@ -2,7 +2,7 @@ import {
   FETCH_MOVIE,
   FETCH_POPULAR,
   FETCH_GENRES,
-  SEARCH_MOVIES
+  SEARCH_MOVIES,
 } from "./../constants/actionTypes";
 
 const initialState = {
@@ -17,10 +17,8 @@ const initialState = {
 function movieReducer (state = initialState, action) {
   switch (action.type) {
     case FETCH_MOVIE:
-      return Object.assign({}, state, action.payload);
-      break;
     case SEARCH_MOVIES:
-      // Deliberate fall-through
+      // Deliberate fall-throughs
     case FETCH_POPULAR:
       return Object.assign({}, state, action.payload);
       // state.push(action.payload);

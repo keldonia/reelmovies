@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 
 import PopularMovies from "./popularMovies.jsx";
 import SearchMovies from "./searchMovies.jsx";
+import Movie from "./movie.jsx";
 /* eslint-disable no-unused-vars */
 
 require("./../styles/base.scss");
@@ -18,6 +19,7 @@ const Body = ({ store }) => (
         <Route path="/" exact component={PopularMovies} />
         <Route path="/popular" component={PopularMovies} />
         <Route path="/search" component={SearchMovies} />
+        <Route path="/movie" component={Movie} />
         <Route path="*" comparator={PopularMovies} />
       </main>
     </Router>

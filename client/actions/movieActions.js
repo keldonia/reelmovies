@@ -3,7 +3,8 @@ import {
   UPDATE_MOVIES,
   FETCH_POPULAR,
   FETCH_GENRES,
-  SEARCH_MOVIES
+  SEARCH_MOVIES,
+  FETCH_MOVIE
 } from "./../constants/actionTypes";
 
 const urls = {
@@ -11,7 +12,8 @@ const urls = {
   api: "/api",
   popular: "/popular",
   genres: "/genres",
-  search: "/search"
+  search: "/search",
+  movie: "/"
 };
 
 function composeUrl (extension) {
@@ -65,7 +67,7 @@ export const fetchSearchMoviesReturn = payload => ({
   payload
 });
 
-export const fetchSearchMovies = (searchString, page) => {
+export const fetchSearchMovie = (searchString, page) => {
   return dispatch => {
     let url = composeUrl("search");
 
@@ -76,6 +78,25 @@ export const fetchSearchMovies = (searchString, page) => {
       }
     }).then(res => {
       dispatch(fetchSearchMoviesReturn(res.data));
+    });
+  };
+};
+
+export const fetchMovieReturn = payload => ({
+  type: FETCH_MOVIE,
+  payload
+});
+
+export const fetchMovie = (searchString) => {
+  return dispatch => {
+    let url = composeUrl("movie") + searchString.id;
+
+    console.log(searchString)
+
+    axios.get(url).then(res => {
+      let movie = { movie: res.data };
+
+      dispatch(fetchMovieReturn(movie));
     });
   };
 };

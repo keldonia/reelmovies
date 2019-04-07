@@ -1,0 +1,14 @@
+@import './variables';
+
+.movie-backdrop {
+  @extend %clear-fix;
+
+    background-color: $black;
+    background-repeat: no-repeat;
+    background-size: 780px auto;
+    clear: both;
+    float: left;
+    height: 14em;
+    margin: auto;
+    width: 100%;
+}
