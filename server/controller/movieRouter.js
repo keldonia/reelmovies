@@ -63,5 +63,18 @@ router.get("/genres", async(req, res, next) => {
     });
 });
 
+router.get("/:id", async(req, res, next) => {
+  let requestOptions = {
+    qs: {
+      api_key: apiKey
+    },
+    url: MovieDBApis.baseUrl + MovieDBApis.movie + "/" + req.params.id
+  }
+
+  await requestPromise.get(requestOptions)
+    .then(movieDBRes => {
+      res.send(movieDBRes);
+    });
+});
 
 module.exports = router;
