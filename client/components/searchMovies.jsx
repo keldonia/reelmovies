@@ -15,6 +15,7 @@ import {
 
 require("./../styles/movieList.scss");
 
+let scroll = {};
 
 const mapStateToProps = (state, ownProps) => {
   let movieInfo = state.MovieReducer;
@@ -42,6 +43,26 @@ class SearchMovies extends BaseComponent {
 
     if (!Object.keys(props.genres).length) {
       props.dispatch(fetchGenres());
+    }
+    window.addEventListener("scroll", this.onScroll.bind(this), false);
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener("scroll", this.onScroll, false);
+  }
+
+  onScroll () {
+    let props = this.props;
+    let newPage = props.page + 1;
+    let query = queryString.parse(this.props.location.search);
+
+    if(
+      props.page < props.totalPages &&
+      !scroll[newPage] &&
+      (window.innerHeight + window.scrollY) >= (props.movies.length * 250)
+    ) {
+      scroll[newPage] = true;
+      props.dispatch(fetchSearchMovie(query, newPage));
     }
   }
 

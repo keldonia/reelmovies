@@ -20,17 +20,44 @@ const initialState = {
 function movieReducer (state = initialState, action) {
   switch (action.type) {
     case FETCH_MOVIE:
+      // Deliberate fall-through
     case FETCH_CAST:
-    case SEARCH_MOVIES:
-      // Deliberate fall-throughs
-    case FETCH_POPULAR:
       return Object.assign({}, state, action.payload);
-      // state.push(action.payload);
+    case SEARCH_MOVIES:
+      // Deliberate fall-through
+    case FETCH_POPULAR:
+      return handlePagination(state, action.payload);
     case FETCH_GENRES:
       return Object.assign({}, state, mapGenres(action.payload.genres));
   }
 
   return state;
+}
+
+function handlePagination (state, payload) {
+  if (payload && payload.page === 1) {
+    return Object.assign({}, state, payload);
+  }
+
+  let results = state.results.concat(payload.results);
+
+  payload.results = filterMovies(results);
+
+  return Object.assign({}, state, payload);
+}
+
+function filterMovies (movies) {
+  let seen = {};
+  let output = [];
+
+  movies.forEach(movie => {
+    if (!seen[movie.id]) {
+      seen[movie.id] = true;
+      output.push(movie);
+    }
+  });
+
+  return output;
 }
 
 function mapGenres (genres) {
