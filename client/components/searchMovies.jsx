@@ -73,6 +73,24 @@ class SearchMovies extends BaseComponent {
       return (
         <Redirect to="/popular" />
       );
+    } else if (!props.movies.length) {
+      let query = queryString.parse(this.props.location.search);
+
+      return (
+        <section className="landing-main">
+          <section className="landing-movies">
+            <div className="landing-item">
+              <div className="landing-item-data">
+                <div className="title-genre-group">
+                  <div className="movie-title">
+                    { "No movies match search: " + query.search }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      );
     } else {
       return (
         <MovieList {...props} />
