@@ -32,3 +32,6 @@ This provides you with a few options for running the application from the comman
   - pulls required npm packages
   - builds webpack bundle
   - starts the node server
+  
+## How to Navigate the App
+The application has 3 main pages, of which 2 the primary difference lies in the information that they render.  The popular movies page is the page available at start up if following the above instructions.  It can also be accessed via clicking on the logo or at the paths `/` or `/popular`, additionally any unmatched path will redirect to this page.  The search movie page is accessible by entering a search term into the search box in the navigation bar and either clicking search or pressing the enter key.  Lastly, there is the individual movie page, this is accessed by clicking on a movie's title on either the popular or search pages.
