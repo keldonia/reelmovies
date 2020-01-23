@@ -10,6 +10,9 @@ import SearchStats from "./searchStats";
 import {
   ENTER
 } from "./../constants/keyCode";
+import {
+  fetchSearchMovie
+} from "./../actions/movieActions";
 
 require("./../styles/header.scss");
 
@@ -59,6 +62,7 @@ class Header extends BaseComponent {
       this.setState({
         push: true
       });
+      this.props.dispatch(fetchSearchMovie({ search }, 1));
     }
   }
 
